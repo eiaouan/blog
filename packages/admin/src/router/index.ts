@@ -18,10 +18,6 @@ const routes = [
           }]
     },
     {
-        path: '/model',
-        component: ()=>import('../views/model/index.vue')
-    },
-    {
       path:'/editor',
       component:()=>import('@/views/editor/index.vue')
      }
