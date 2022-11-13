@@ -12,6 +12,11 @@ export const test= ()=>{
          url: "/user",
          method: "get"
      })
- } 
-
-     
+ }
+// 获取文章列表
+ export const getEssayList = ()=>{
+  return http({
+    url:'/essay/getEssayList',
+    method: 'get'
+  })
+ }

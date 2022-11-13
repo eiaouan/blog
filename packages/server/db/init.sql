@@ -30,9 +30,12 @@ INSERT INTO `essay` set essay_id=1,sort_id=1,title='测试',content='<p><b>1、�
 
 -- 用户id 文章id（主键）
 CREATE TABLE `user_essay` (
-  `essay_id` int(11) NOT NULL PRIMARY KEY COMMENT '文章Id',
-  `use_id` int(11) NOT NULL
-)
+  `essay_id` int(11) NOT NULL COMMENT '文章Id',
+  `user_id` int(11) NOT NULL,
+  PRIMARY key (essay_id),
+  foreign KEY (essay_id) references essay(essay_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  foreign KEY (user_id) references user_info(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 -- 文章id 分类
 
@@ -40,10 +43,13 @@ CREATE TABLE `user_essay` (
 
 
 -- 发布文章
- -- 这里content存储html的格式
-CREATE TABLE 'published' (
+-- 这里content存储html的格式
+CREATE TABLE `published` (
   `essay_id` int(11) NOT NULL PRIMARY KEY COMMENT '文章Id',
   `title` varchar(200) DEFAULT NULL COMMENT '标题',
   `cover` varchar(200) DEFAULT NULL COMMENT '封面',-- 添加封面
-  `tag` varchar(200) DEFAULT NULL COMMENT '添加标签' -- 用，分割表示数组
-)
+  `tag` varchar(200) DEFAULT NULL COMMENT '添加标签', -- 用，分割表示数组
+  `theme` varchar(200) DEFAULT 'default' COMMENT '主题',
+  `published_time` datetime DEFAULT NULL COMMENT '发布时间',
+  foreign KEY (essay_id) references essay(essay_id) ON DELETE CASCADE ON UPDATE CASCADE -- 参照完整性规则
+);

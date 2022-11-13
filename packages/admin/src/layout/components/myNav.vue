@@ -35,6 +35,7 @@ export default defineComponent({
   background: #fff;
   box-shadow: 2px 2px #ccc;
   border: 1px solid #ccc ;
+  box-sizing: border-box;
 }
 .nav ul {
   display: flex;

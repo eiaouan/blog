@@ -7,7 +7,8 @@ const sqlConfig = {
     port : '3306',
     user: 'root',
     password : '123456',
-    database: 'blog'
+    database: 'blog',
+    timezone:"SYSTEM"
 }
 
 // 密钥设置

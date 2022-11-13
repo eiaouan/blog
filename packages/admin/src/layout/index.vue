@@ -13,8 +13,15 @@ export default defineComponent({
   <div class="layout">
     <!-- 导航 -->
     <myNav/>
+    <Suspense>
+      <!-- 在 #fallback 插槽中显示 “正在加载中” -->
+  <template #fallback>
+    Loading...
+  </template>
     <!-- 主体 -->
     <router-view />
+
+  </Suspense>
     <!-- 底部 -->
   </div>
 

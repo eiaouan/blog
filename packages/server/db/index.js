@@ -13,7 +13,6 @@ const pool = mysql.createPool(config.sqlConfig)
           resolve( err )
         } else {
           connection.query(sql, values, ( err, rows) => {
-  
             if ( err ) {
               reject( err )
             } else {
